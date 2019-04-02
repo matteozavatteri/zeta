@@ -1,5 +1,5 @@
 # zeta
-A tool for CNCUs
+A tool for Constraint Networks Under Conditional Uncertainty (CNCUs)
 
 To use Esse please install:
 - Java 8
