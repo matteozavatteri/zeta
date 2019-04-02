@@ -1,0 +1,44 @@
+Domains {
+  (D1 : alice bob charlie)
+  (D2 : alice bob charlie david)
+  (D3 : alice bob)
+  (D4 : wf)
+  (D5 : bob)
+}
+
+Propositions {
+  p q
+}
+
+Variables {
+  (ProcR :  : D1 : )
+  (LogR :  : D1 : )
+  (P : p : D4 : )
+  (Q : q : D4 : p)
+  (BusiC : : D2 : !p)
+  (PersC : : D3 : p)
+  (Sign : : D5 : )
+}
+
+Precedence {
+  (ProcR < LogR)
+  (ProcR < P)
+  (P < Q)
+  (P < BusiC)
+  (P < PersC)
+  (LogR < BusiC)
+  (PersC < Sign)
+  (BusiC < Sign)
+  (Q < Sign)
+}
+
+Constraints {
+  (ProcR LogR : (alice bob) (alice charlie) (bob alice) (bob charlie) (charlie alice) (charlie bob) : )                                              # (R1, )
+  (ProcR LogR : (alice alice) (alice charlie) (bob bob) (bob charlie) (charlie alice) (charlie bob) (charlie charlie) : !p)                          # (R1, !p)
+  (LogR BusiC : (alice bob) (alice charlie) (alice david) (bob alice) (bob charlie) (bob david) (charlie alice) (charlie bob) (charlie david) : !p)  # (R2, !p)
+  (ProcR BusiC : (alice bob) (alice charlie) (alice david) (bob alice) (bob charlie) (bob david) (charlie alice) (charlie bob) (charlie david) : !p) # (R3, !p)
+  (ProcR PersC : (charlie alice) (charlie bob) : p)                                                                                                  # (R4, p)
+  (BusiC Sign : (alice bob) (charlie bob) (david bob) : !p)                                                                                          # (R5, !p)
+  (PersC Sign : (alice bob) : p q)                                                                                                                   # (R6, p q)
+  (PersC Sign : (bob bob) : p !q)                                                                                                                    # (R6, p !q)
+}

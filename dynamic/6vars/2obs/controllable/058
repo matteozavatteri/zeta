@@ -1,0 +1,31 @@
+# 6vars/2obs/controllable/058
+# 1 domain(s)
+# 6 variable(s) (2 observation variable(s))
+# 4 labeled constraint(s)
+
+Domains {
+	(D : v1 v2 v3 v4 v5 v6)
+}
+
+Propositions {
+	p1 p2
+}
+
+Variables {
+	(P1 : p1 : D : )
+	(P2 : p2 : D : )
+	(V1 :  : D : )
+	(V2 :  : D : )
+	(V3 :  : D : )
+	(V4 :  : D : )
+}
+
+Precedence {
+}
+
+Constraints {
+	(P1 V4 : (v1 v6) (v3 v6) (v4 v5) (v1 v1) (v5 v5) (v1 v3) (v3 v1) (v2 v4) (v2 v3) (v4 v4) (v5 v1) (v6 v1) (v6 v3) : !p1)
+	(P2 V1 : (v2 v3) (v2 v1) (v4 v4) (v1 v1) (v4 v1) (v1 v2) (v4 v2) (v6 v4) (v3 v2) (v2 v5) (v1 v6) (v5 v2) (v4 v6) (v6 v6) (v5 v5) : )
+	(V3 V4 : (v5 v5) (v6 v5) (v6 v2) (v2 v5) (v1 v2) (v6 v3) (v4 v5) (v1 v4) (v3 v2) (v2 v4) (v4 v2) (v3 v3) : )
+	(V3 V4 : (v5 v6) (v5 v2) (v2 v6) (v5 v4) (v6 v4) (v3 v5) (v1 v2) (v2 v2) (v3 v2) (v3 v1) (v4 v2) (v1 v3) (v4 v1) (v3 v4) (v4 v4) : p1 !p2)
+}

@@ -1,0 +1,40 @@
+# 6vars/6obs/controllable/076
+# 1 domain(s)
+# 6 variable(s) (6 observation variable(s))
+# 13 labeled constraint(s)
+
+Domains {
+	(D : v1 v2 v3 v4 v5 v6)
+}
+
+Propositions {
+	p1 p2 p3 p4 p5 p6
+}
+
+Variables {
+	(P1 : p1 : D : )
+	(P2 : p2 : D : )
+	(P3 : p3 : D : )
+	(P4 : p4 : D : )
+	(P5 : p5 : D : )
+	(P6 : p6 : D : )
+}
+
+Precedence {
+}
+
+Constraints {
+	(P1 P5 : (v1 v5) (v1 v6) (v2 v6) (v3 v6) (v4 v5) (v4 v6) (v6 v5) (v5 v6) (v1 v2) (v1 v4) (v2 v3) (v5 v1) (v4 v2) (v4 v3) (v5 v3) (v5 v4) (v6 v3) : )
+	(P2 P5 : (v2 v6) (v1 v5) (v1 v6) (v4 v5) (v3 v5) (v6 v6) (v1 v2) (v4 v1) (v4 v3) (v6 v2) (v4 v4) (v5 v2) (v3 v4) (v5 v3) (v6 v4) : )
+	(P1 P2 : (v2 v2) (v1 v4) (v3 v1) (v2 v4) (v2 v3) (v3 v4) (v2 v6) (v5 v4) (v6 v1) (v4 v3) (v3 v5) (v4 v5) (v5 v5) (v6 v5) : )
+	(P3 P5 : (v3 v6) (v1 v5) (v4 v6) (v1 v6) (v3 v1) (v3 v2) (v5 v5) (v3 v3) (v3 v4) (v6 v5) (v2 v2) (v2 v3) (v6 v1) (v5 v3) (v5 v4) : )
+	(P2 P3 : (v1 v1) (v1 v2) (v6 v3) (v3 v4) (v3 v1) (v6 v4) (v4 v2) (v3 v2) (v6 v1) (v2 v5) (v5 v4) (v5 v1) (v1 v6) (v4 v5) (v5 v5) : )
+	(P4 P6 : (v3 v6) (v1 v6) (v3 v2) (v6 v6) (v3 v1) (v6 v5) (v4 v3) (v3 v4) (v3 v3) (v2 v3) (v6 v2) (v1 v3) (v5 v2) (v6 v1) : )
+	(P1 P4 : (v5 v3) (v4 v1) (v2 v5) : )
+	(P5 P6 : (v5 v5) (v6 v5) (v3 v6) (v2 v5) (v5 v3) (v4 v5) (v6 v3) (v1 v1) (v2 v1) (v2 v3) (v3 v4) (v4 v1) (v4 v3) : )
+	(P3 P5 : (v3 v5) (v4 v5) (v1 v5) (v1 v6) (v2 v6) (v3 v2) (v3 v4) (v4 v3) (v2 v2) (v1 v4) (v5 v1) (v2 v4) (v5 v4) (v6 v4) : p1)
+	(P2 P4 : (v4 v4) (v1 v3) (v2 v1) (v3 v4) (v3 v3) (v4 v1) (v3 v1) (v6 v2) (v2 v6) (v5 v3) (v3 v6) (v3 v5) (v5 v6) : p1 p4 p6)
+	(P3 P6 : (v3 v5) (v1 v6) (v1 v5) (v2 v5) (v4 v2) (v5 v6) (v3 v3) (v2 v2) (v1 v4) (v1 v3) (v2 v4) (v2 v3) (v5 v2) (v6 v2) (v6 v1) (v5 v3) (v6 v3) : p1 p2 !p4)
+	(P4 P5 : (v4 v6) (v3 v5) (v1 v5) (v4 v2) (v2 v1) (v6 v6) (v5 v6) (v3 v4) (v2 v3) (v1 v2) (v2 v4) (v1 v3) (v6 v1) (v5 v1) (v5 v2) (v5 v3) : !p4 !p5 !p6)
+	(P1 P6 : (v1 v6) (v3 v6) (v2 v5) (v4 v6) (v3 v5) (v5 v6) (v1 v1) (v6 v6) (v2 v2) (v3 v2) (v3 v1) (v4 v2) (v5 v2) (v4 v1) (v6 v2) (v3 v3) (v4 v3) (v5 v3) : !p3 p4 !p5 p6)
+}

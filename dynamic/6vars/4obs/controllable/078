@@ -1,0 +1,36 @@
+# 6vars/4obs/controllable/078
+# 1 domain(s)
+# 6 variable(s) (4 observation variable(s))
+# 9 labeled constraint(s)
+
+Domains {
+	(D : v1 v2 v3 v4 v5 v6)
+}
+
+Propositions {
+	p1 p2 p3 p4
+}
+
+Variables {
+	(P1 : p1 : D : )
+	(P2 : p2 : D : )
+	(P3 : p3 : D : )
+	(P4 : p4 : D : )
+	(V1 :  : D : )
+	(V2 :  : D : )
+}
+
+Precedence {
+}
+
+Constraints {
+	(P1 V1 : (v1 v6) (v2 v6) (v3 v5) (v4 v6) (v2 v1) (v3 v1) (v2 v2) (v6 v6) (v2 v3) (v2 v4) (v3 v3) (v3 v4) (v4 v3) (v5 v2) (v6 v1) (v5 v3) (v6 v2) : p2 p4)
+	(P1 V1 : (v1 v6) (v2 v5) (v2 v6) (v4 v5) (v4 v6) (v6 v5) (v2 v1) (v3 v2) (v5 v2) (v3 v4) (v4 v4) (v6 v2) (v6 v3) (v6 v4) : )
+	(P2 V1 : (v1 v5) (v4 v5) (v4 v6) (v6 v5) (v6 v6) (v5 v5) (v1 v2) (v3 v1) (v1 v3) (v4 v3) (v5 v1) (v6 v3) (v5 v3) (v5 v4) : )
+	(P2 V2 : (v2 v5) (v3 v6) (v6 v6) (v5 v6) (v6 v5) (v1 v1) (v4 v2) (v2 v4) (v2 v3) (v3 v1) (v4 v3) (v3 v4) (v5 v2) (v6 v1) : )
+	(P2 P3 : (v1 v3) (v4 v3) (v4 v4) (v2 v2) (v3 v4) (v1 v2) (v6 v3) (v3 v1) (v6 v1) (v5 v1) (v2 v6) (v6 v2) (v4 v5) (v3 v5) (v5 v5) : )
+	(P2 V1 : (v1 v5) (v4 v6) (v3 v5) (v6 v5) (v3 v6) (v5 v5) (v1 v1) (v5 v6) (v4 v1) (v3 v1) (v1 v4) (v4 v3) (v6 v1) (v4 v4) (v6 v3) (v5 v3) : p1)
+	(P1 P4 : (v1 v3) (v3 v4) (v2 v2) (v3 v2) (v5 v4) (v2 v1) (v4 v3) (v3 v1) (v4 v2) (v6 v4) (v1 v5) (v2 v5) (v5 v5) (v6 v5) : p4)
+	(P1 V2 : (v1 v6) (v1 v5) (v2 v5) (v4 v6) (v4 v5) (v5 v5) (v3 v1) (v5 v2) (v3 v4) (v6 v2) (v6 v1) (v6 v4) (v6 v3) : !p2 !p3)
+	(P3 P4 : (v4 v2) (v3 v1) (v1 v3) (v1 v2) (v2 v1) (v5 v4) (v3 v6) (v3 v5) (v5 v3) (v6 v3) (v1 v6) (v2 v6) (v1 v5) (v5 v6) (v6 v6) : !p3)
+}
