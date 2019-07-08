@@ -1,0 +1,65 @@
+Domains {
+    (System : wf) 
+    (ProcRDom : alice bob)
+    (CheckFRDom : bob kate)
+    (AntiMLDom : mike)
+    (TaxFADom : evie)
+    (PrepCDom : kate ted)
+    (SignDom : kate ted)
+    (RejectDom : alice bob)
+}
+
+Propositions {
+    h a
+}
+
+Variables {
+    (S : : System : )
+    (ProcR : : ProcRDom : ) 
+    (PS : : System : )
+    (CheckFR : : CheckFRDom : )
+    (H : h : System : )
+    (AntiML : : AntiMLDom : h)
+    (TaxFA : : TaxFADom : !h)
+    (HE : : System : )
+    (PE : : System : )
+    (A : a : System : )
+    (PrepC : : PrepCDom : a)
+    (Sign : : SignDom : a)
+    (Reject : : RejectDom : !a)
+    (AE : : System : )
+    (E : : System : )
+}
+
+Precedence {
+    (S < ProcR)
+    (ProcR < PS)
+    (PS < CheckFR)
+    (PS < H)
+    (CheckFR < PE)
+    (H < AntiML)
+    (H < TaxFA)
+    (AntiML < HE)
+    (TaxFA < HE)
+    (HE < PE)
+    (PE < A)
+    (A < PrepC)
+    (A < Reject)
+    (PrepC < Sign)
+    (Sign < AE)
+    (Reject < AE)
+    (AE < E)
+}
+
+Constraints {
+    (ProcR CheckFR : (alice bob) (alice kate) (bob kate) : )
+    (CheckFR PrepC : (bob kate) (bob ted) (kate ted) : a)
+    (PrepC Sign : (kate ted) (ted kate) : a)
+    (CheckFR AntiML : (kate mike) : h)
+    (CheckFR TaxFA : (bob evie) : !h)
+    (ProcR Reject : (alice alice) (bob bob) : !a)
+}
+
+# Matteo Zavatteri
+# University of Verona, Italy
+# matteo.zavatteri@univr.it
