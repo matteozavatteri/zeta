@@ -1,0 +1,62 @@
+Variables {				    # Syntax
+    Start : wfms : ;			# variable : domain : label;
+    ProcR : alice bob : ;
+    PS : wfms : ;
+    CheckFR : bob kate : ;
+    H? : h : wfms : ;			# observation_variable : proposition : domain : label;
+    AntiML : mike : h;
+    TaxFA : evie : !h;
+    HJ : wfms : ;
+    PJ : wfms : ;
+    A? : a : wfms : ;
+    PrepC : kate ted : a;
+    Sign : kate ted : a;
+    Reject : alice bob : !a;
+    AJ : wfms : ;
+    T! : t : wfms : ;	# decision_variable : proposition : domain : label;
+    M! : m : wfms : ;
+    EmailN : server : ;
+    TextN : server : t;
+    MobN : server : m;
+    OJ : wfms : ;
+    End : wfms : ;
+}
+
+Precedence {				# variable -> variable : label;
+    Start -> ProcR : ;
+    ProcR -> PS: ;
+    PS -> CheckFR : ;
+    CheckFR -> PJ : ;
+    PS -> H : ;
+    H -> AntiML : h;
+    AntiML -> HJ : h;
+    H -> TaxFA : !h;
+    TaxFA -> HJ : !h;
+    HJ -> PJ : ;
+    PJ -> A : ;
+    A -> PrepC : a;
+    PrepC -> Sign : a;
+    Sign -> AJ : a;
+    A -> Reject : !a;
+    Reject -> AJ : !a;
+    AJ -> T : ;
+    T -> M : ;
+    M -> EmailN : ;
+    EmailN -> OJ : ;
+    M -> TextN : t;
+    TextN -> OJ : t;
+    M -> MobN : m;
+    MobN -> OJ : m;
+    OJ -> End : ;
+}
+
+Constraints {				# scope : tuples : label; 
+    ProcR CheckFR : (alice bob) (alice kate) (bob kate) : ;
+    CheckFR PrepC : (bob kate) (bob ted) (kate ted) : a;
+    PrepC Sign : (kate ted) (ted kate) : a;
+    CheckFR AntiML : (kate mike) : h;
+    CheckFR TaxFA : (bob evie) : !h;
+    ProcR Reject : (alice alice) (bob bob) : !a;
+    End : : !t !m;
+    End : : t m;
+}

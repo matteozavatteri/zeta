@@ -1,0 +1,26 @@
+Variables { 
+  P1? : p1 : v3 v5 v7 : ;
+  P2? : p2 : v3 v5 : ;
+  D1! : d1 : v2 v4 v7 : ;
+  D2! : d2 : v1 v3 v5 : ;
+  X1 : v3 v7 : ;
+  X2 : v1 v4 v5 : ;
+  X3 : v1 v2 v7 : ;
+  X4 : v2 v3 v5 : ;
+}
+
+Precedence {
+  X4 -> D1 : d1;
+  X4 -> D1 : !p1 d1;
+  D1 -> X4 : !d1;
+  D1 -> X4 : p1 d1;
+  P1 -> X4 : ;
+  P2 -> X4 : ;
+}
+
+Constraints {
+  X3 X4 : (v1 v2) (v2 v3) (v2 v2) (v1 v3) : !p1;
+  X3 X4 : (v1 v2) (v2 v3) (v2 v2) : p1;
+  X3 X4 : (v1 v2) (v2 v3) (v2 v2) (v1 v3) : ;
+  D1 X4 : (v2 v3) (v2 v2) : ;
+}
